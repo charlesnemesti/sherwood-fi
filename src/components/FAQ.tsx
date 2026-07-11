@@ -7,35 +7,47 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          FAQ
+    <section className="py-24 sm:py-32">
+      <div className="site-container max-w-3xl">
+        <p className="section-label">FAQ</p>
+        <h2 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
+          Common questions
         </h2>
 
-        <div className="mt-8 divide-y divide-border/60">
+        <div className="mt-10">
           {faqs.map((faq, index) => (
-            <div key={faq.question} className="py-4">
+            <div key={faq.question} className="faq-item">
               <button
                 type="button"
-                className="flex w-full items-center justify-between gap-4 text-left"
+                className="faq-trigger"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
               >
-                <span className="font-medium text-foreground">{faq.question}</span>
+                {faq.question}
                 <svg
-                  className={`h-5 w-5 shrink-0 text-muted transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
                   fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  className={`shrink-0 text-muted transition-transform duration-300 ${
+                    openIndex === index ? "rotate-45" : ""
+                  }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </button>
-              {openIndex === index && (
-                <p className="mt-3 text-sm leading-relaxed text-muted">{faq.answer}</p>
-              )}
+              <div
+                className="grid transition-all duration-300 ease-out"
+                style={{
+                  gridTemplateRows: openIndex === index ? "1fr" : "0fr",
+                }}
+              >
+                <div className="overflow-hidden">
+                  <p className="pb-5 text-sm leading-[1.7] text-muted">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

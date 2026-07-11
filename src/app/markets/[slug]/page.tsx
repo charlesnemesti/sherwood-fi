@@ -17,67 +17,65 @@ export default async function MarketDetailPage({ params }: Props) {
   if (!market) notFound();
 
   return (
-    <section className="px-4 py-12 sm:px-6">
-      <div className="mx-auto max-w-3xl">
+    <section className="py-16 sm:py-24">
+      <div className="site-container max-w-3xl">
         <Link
           href="/markets"
-          className="text-sm text-muted transition-colors hover:text-emerald"
+          className="font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:text-copper"
         >
-          ← Back to markets
+          ← Markets
         </Link>
 
-        <div className="mt-6 rounded-2xl border border-border/60 bg-surface/40 p-8">
-          <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="mt-8 border border-border bg-surface">
+          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border px-6 py-5">
             <div>
-              <p className="text-sm text-muted">{market.type}</p>
-              <h1 className="font-display mt-1 text-3xl font-bold text-foreground">
-                {market.name}, {market.state}
+              <p className="font-mono text-[0.625rem] uppercase tracking-wider text-muted">
+                {market.type}
+              </p>
+              <h1 className="font-display mt-1 text-3xl font-light text-foreground">
+                {market.name}
+                <span className="ml-2 font-mono text-lg text-muted">
+                  {market.state}
+                </span>
               </h1>
             </div>
-            <span className="rounded-full border border-emerald/30 bg-emerald/10 px-3 py-1 text-xs font-medium text-emerald">
-              Early Access
+            <span className="border border-sage/20 bg-sage/5 px-3 py-1 font-mono text-[0.625rem] uppercase tracking-wider text-sage">
+              Early access
             </span>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <div className="rounded-xl border border-border/40 bg-background/50 p-4">
-              <p className="text-xs text-muted">Statutory Rate</p>
-              <p className="font-display mt-1 text-2xl font-bold text-emerald">
-                {market.rate.toFixed(1)}%
-              </p>
-            </div>
-            <div className="rounded-xl border border-border/40 bg-background/50 p-4">
-              <p className="text-xs text-muted">Max Term</p>
-              <p className="font-display mt-1 text-2xl font-bold text-foreground">
-                {market.termMonths} mo
-              </p>
-            </div>
-            <div className="rounded-xl border border-border/40 bg-background/50 p-4">
-              <p className="text-xs text-muted">Collateral</p>
-              <p className="font-display mt-1 text-2xl font-bold text-foreground">
-                {market.collateral}x
-              </p>
-            </div>
-            <div className="rounded-xl border border-border/40 bg-background/50 p-4">
-              <p className="text-xs text-muted">Settlement</p>
-              <p className="font-display mt-1 text-2xl font-bold text-foreground">
-                USDC
-              </p>
-            </div>
+          <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-4">
+            {[
+              { label: "Statutory rate", value: `${market.rate.toFixed(1)}%`, accent: true },
+              { label: "Max term", value: `${market.termMonths} mo` },
+              { label: "Collateral", value: `${market.collateral}×` },
+              { label: "Settlement", value: "USDC" },
+            ].map((item) => (
+              <div key={item.label} className="bg-surface p-5">
+                <p className="font-mono text-[0.625rem] uppercase tracking-wider text-muted">
+                  {item.label}
+                </p>
+                <p
+                  className={`font-display mt-2 text-2xl font-light ${
+                    item.accent ? "text-sage" : "text-foreground"
+                  }`}
+                >
+                  {item.value}
+                </p>
+              </div>
+            ))}
           </div>
 
-          <p className="mt-8 text-sm leading-relaxed text-muted">
-            This market is available during phased early access. Connect your wallet
-            on Robinhood Chain and join the waitlist to be notified when trading opens
-            for {market.name}.
-          </p>
-
-          <button
-            type="button"
-            className="mt-6 rounded-full bg-emerald px-6 py-3 text-sm font-semibold text-background transition-all hover:bg-emerald-light"
-          >
-            Join Waitlist for This Market
-          </button>
+          <div className="px-6 py-6">
+            <p className="text-sm leading-[1.7] text-muted">
+              Available during phased early access. Connect your wallet on
+              Robinhood Chain and join the waitlist to be notified when trading
+              opens for {market.name}.
+            </p>
+            <a href="/#waitlist" className="btn-primary mt-6 inline-flex">
+              Join Waitlist
+            </a>
+          </div>
         </div>
       </div>
     </section>

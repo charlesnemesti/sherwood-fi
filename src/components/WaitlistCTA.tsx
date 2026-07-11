@@ -12,43 +12,40 @@ export function WaitlistCTA() {
   }
 
   return (
-    <section id="waitlist" className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="relative overflow-hidden rounded-3xl border border-emerald/20 bg-gradient-to-br from-emerald/10 via-surface to-gold/5 p-8 sm:p-12">
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+    <section id="waitlist" className="pb-24 sm:pb-32">
+      <div className="site-container">
+        <div className="waitlist-panel">
+          <p className="section-label relative z-10">Early Access</p>
+          <h2 className="font-display relative z-10 mt-3 max-w-lg text-[clamp(1.75rem,4vw,2.25rem)] font-light text-foreground">
+            Be first onchain when markets open
+          </h2>
+          <p className="relative z-10 mt-3 max-w-md text-sm text-muted">
+            Phased rollout on Robinhood Chain. Join the waitlist — we&apos;ll
+            notify you when your cohort is approved.
+          </p>
 
-          <div className="relative max-w-xl">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Be first onchain when markets open
-            </h2>
-            <p className="mt-4 text-muted">
-              Early access is rolling out in phases on Robinhood Chain.
+          {submitted ? (
+            <p className="relative z-10 mt-8 max-w-sm border border-sage/20 bg-sage/5 px-4 py-3 font-mono text-xs text-sage">
+              ✓ You&apos;re on the list. We&apos;ll be in touch.
             </p>
-
-            {submitted ? (
-              <p className="mt-6 rounded-xl border border-emerald/30 bg-emerald/10 px-4 py-3 text-sm text-emerald">
-                You&apos;re on the list. We&apos;ll notify you when your cohort is approved.
-              </p>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 rounded-full border border-border bg-background px-5 py-3 text-sm text-foreground placeholder:text-muted/60 focus:border-emerald/50 focus:outline-none focus:ring-1 focus:ring-emerald/30"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-emerald px-6 py-3 text-sm font-semibold text-background transition-all hover:bg-emerald-light"
-                >
-                  Join Waitlist
-                </button>
-              </form>
-            )}
-          </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="relative z-10 mt-8 flex max-w-md flex-col gap-2 sm:flex-row"
+            >
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 border border-border bg-background px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted/50 focus:border-copper/50 focus:outline-none"
+              />
+              <button type="submit" className="btn-primary whitespace-nowrap">
+                Join Waitlist
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>

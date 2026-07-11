@@ -1,42 +1,42 @@
 export default function AboutPage() {
   return (
-    <section className="px-4 py-12 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-          About Sherwood Fi
+    <section className="py-16 sm:py-24">
+      <div className="site-container max-w-2xl">
+        <p className="section-label">About</p>
+        <h1 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
+          Sherwood Fi
         </h1>
 
-        <div className="mt-8 space-y-6 text-muted leading-relaxed">
+        <div className="mt-8 space-y-5 text-[0.9375rem] leading-[1.75] text-muted">
           <p>
-            Sherwood Fi is an onchain marketplace for tokenized tax liens and tax deeds,
-            built on Robinhood Chain. We democratize access to a real-world asset class
-            that has historically been limited to institutional buyers at county auctions.
+            Sherwood Fi is an onchain marketplace for tokenized tax liens and tax
+            deeds, built on Robinhood Chain. We democratize access to a real-world
+            asset class historically limited to institutional buyers at county
+            auctions.
           </p>
           <p>
-            Named after the legendary forest where outlaws redistributed wealth, Sherwood Fi
-            brings the same spirit to decentralized finance — opening lien markets to
-            everyday investors with transparent terms, verifiable collateral, and 24/7
-            liquidity.
+            Named after the legendary forest where wealth was redistributed,
+            Sherwood Fi opens lien markets to everyday investors — transparent
+            terms, verifiable collateral, continuous liquidity.
           </p>
           <p>
-            Every certificate issued on Sherwood Fi embeds statutory interest rates,
-            redemption windows, and underlying parcel references directly in the token.
-            Settlement happens in USDC with full onchain transparency.
+            Every certificate embeds statutory interest rates, redemption windows,
+            and underlying parcel references directly in the token. Settlement in
+            USDC, fully onchain.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-border sm:grid-cols-3">
           {[
             { label: "Founded", value: "2026" },
             { label: "Chain", value: "Robinhood L2" },
             { label: "Settlement", value: "USDC" },
           ].map((item) => (
-            <div
-              key={item.label}
-              className="rounded-xl border border-border/60 bg-surface/40 p-4 text-center"
-            >
-              <p className="text-xs text-muted">{item.label}</p>
-              <p className="font-display mt-1 text-lg font-semibold text-foreground">
+            <div key={item.label} className="bg-surface p-5">
+              <p className="font-mono text-[0.625rem] uppercase tracking-wider text-muted">
+                {item.label}
+              </p>
+              <p className="font-display mt-2 text-xl font-light text-foreground">
                 {item.value}
               </p>
             </div>

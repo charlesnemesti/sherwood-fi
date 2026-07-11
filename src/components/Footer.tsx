@@ -5,24 +5,30 @@ const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/docs", label: "Documentation" },
   { href: "/markets", label: "Markets" },
-  { href: "#", label: "Explorer ↗", external: true },
-  { href: "#", label: "Faucet ↗", external: true },
-  { href: "#", label: "$SHERWOOD on Virtuals ↗", external: true },
+  { href: "https://robinhoodchain.blockscout.com", label: "Explorer ↗", external: true },
+  { href: "https://docs.robinhood.com/chain/", label: "Chain Docs ↗", external: true },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-surface/50">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <Logo size="lg" />
+    <footer className="border-t border-border">
+      <div className="site-container py-14">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          <div>
+            <Logo size="lg" />
+            <p className="mt-4 max-w-xs text-xs leading-relaxed text-muted">
+              Onchain tax lien markets on Robinhood Chain. Not investment advice.
+            </p>
+          </div>
 
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap gap-x-8 gap-y-3">
             {footerLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-sm text-muted transition-colors hover:text-foreground"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="font-mono text-[0.6875rem] uppercase tracking-wider text-muted transition-colors hover:text-copper"
                 >
                   {link.label}
                 </Link>
@@ -31,12 +37,14 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="mt-8 space-y-2 border-t border-border/40 pt-8">
-          <p className="font-mono text-xs text-muted">
-            $SHERWOOD CA: 0x8f3a2b1c9d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8
+        <div className="section-rule mt-10" />
+
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[0.625rem] text-muted/70">
+            $SHERWOOD · 0x8f3a…e7f8
           </p>
-          <p className="text-xs text-muted/70">
-            © 2026 Sherwood Fi. Not investment advice. Digital assets involve risk.
+          <p className="font-mono text-[0.625rem] text-muted/50">
+            © 2026 Sherwood Fi
           </p>
         </div>
       </div>

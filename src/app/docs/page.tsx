@@ -15,27 +15,30 @@ export default function DocsPage() {
   ];
 
   return (
-    <section className="px-4 py-12 sm:px-6">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-          Documentation
+    <section className="py-16 sm:py-24">
+      <div className="site-container max-w-2xl">
+        <p className="section-label">Documentation</p>
+        <h1 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
+          Docs
         </h1>
-        <p className="mt-4 text-muted">
+        <p className="mt-4 text-sm text-muted">
           Technical guides and protocol reference for Sherwood Fi on Robinhood Chain.
         </p>
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-12 space-y-10">
           {sections.map((section) => (
             <div key={section.title}>
-              <h2 className="font-display text-lg font-semibold text-foreground">
+              <h2 className="font-display text-lg font-normal text-foreground">
                 {section.title}
               </h2>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-4 divide-y divide-border border border-border">
                 {section.items.map((item) => (
-                  <li key={item}>
-                    <span className="cursor-pointer text-sm text-muted transition-colors hover:text-emerald">
-                      {item}
-                    </span>
+                  <li
+                    key={item}
+                    className="flex items-center justify-between bg-surface px-4 py-3 text-sm text-muted transition-colors hover:bg-surface-raised hover:text-copper"
+                  >
+                    {item}
+                    <span className="font-mono text-xs text-muted/40">→</span>
                   </li>
                 ))}
               </ul>

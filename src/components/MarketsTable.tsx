@@ -5,66 +5,62 @@ export function MarketsTable({ showAll = false }: { showAll?: boolean }) {
   const displayMarkets = showAll ? markets : markets.slice(0, 4);
 
   return (
-    <section className="px-4 py-20 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <section className="py-24 sm:py-32">
+      <div className="site-container">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              {showAll ? "All lien markets" : "Example lien markets"}
+            <p className="section-label">Markets</p>
+            <h2 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
+              {showAll ? "All lien markets" : "Example markets"}
             </h2>
-            <p className="mt-2 text-muted">
-              Live markets open with early access — explore the full list in the app.
-            </p>
           </div>
           {!showAll && (
             <Link
               href="/markets"
-              className="text-sm font-medium text-emerald transition-colors hover:text-emerald-light"
+              className="font-mono text-xs uppercase tracking-wider text-copper hover:underline"
             >
-              Browse all markets →
+              View all →
             </Link>
           )}
         </div>
 
-        <div className="mt-8 overflow-x-auto rounded-2xl border border-border/60">
-          <table className="w-full min-w-[640px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-border/60 bg-surface/60">
-                <th className="px-4 py-3 font-medium text-muted">Market</th>
-                <th className="px-4 py-3 font-medium text-muted">Type</th>
-                <th className="px-4 py-3 font-medium text-muted">Statutory Rate</th>
-                <th className="px-4 py-3 font-medium text-muted">Max Term</th>
-                <th className="px-4 py-3 font-medium text-muted">Collateral Coverage</th>
-                <th className="px-4 py-3 font-medium text-muted" />
-              </tr>
-            </thead>
-            <tbody>
-              {displayMarkets.map((market) => (
-                <tr
-                  key={market.slug}
-                  className="border-b border-border/40 transition-colors last:border-0 hover:bg-surface/30"
-                >
-                  <td className="px-4 py-4 font-medium text-foreground">
-                    {market.name}, {market.state}
-                  </td>
-                  <td className="px-4 py-4 text-muted">{market.type}</td>
-                  <td className="px-4 py-4 font-mono text-emerald">
-                    {market.rate.toFixed(1)}%
-                  </td>
-                  <td className="px-4 py-4 text-muted">{market.termMonths} mo</td>
-                  <td className="px-4 py-4 font-mono text-muted">{market.collateral}x</td>
-                  <td className="px-4 py-4">
-                    <Link
-                      href={`/markets/${market.slug}`}
-                      className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-emerald/40 hover:text-emerald"
-                    >
-                      View
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-10 border border-border bg-surface">
+          <div className="market-row hidden border-b border-border bg-surface-raised font-mono text-[0.625rem] uppercase tracking-wider text-muted md:grid">
+            <span>Jurisdiction</span>
+            <span>Type</span>
+            <span>Rate</span>
+            <span>Term</span>
+            <span>Coverage</span>
+            <span />
+          </div>
+
+          {displayMarkets.map((market) => (
+            <div key={market.slug} className="market-row">
+              <div>
+                <p className="font-medium text-foreground">
+                  {market.name}
+                  <span className="ml-1.5 font-mono text-xs text-muted">
+                    {market.state}
+                  </span>
+                </p>
+              </div>
+              <span className="font-mono text-xs text-muted md:text-sm">
+                {market.type}
+              </span>
+              <span className="font-mono text-sage">
+                {market.rate.toFixed(1)}%
+              </span>
+              <span className="font-mono text-sm text-muted">
+                {market.termMonths} mo
+              </span>
+              <span className="font-mono text-sm text-muted">
+                {market.collateral}×
+              </span>
+              <Link href={`/markets/${market.slug}`} className="market-link">
+                View →
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>
