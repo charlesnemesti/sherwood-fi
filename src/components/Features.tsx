@@ -1,3 +1,4 @@
+import { SiteImage } from "./SiteImage";
 import { features } from "@/lib/data";
 
 const layout = [
@@ -13,7 +14,7 @@ export function Features() {
   return (
     <section className="py-24 sm:py-32">
       <div className="site-container">
-        <div className="grid gap-12 lg:grid-cols-[0.4fr_1fr] lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[0.42fr_1fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="section-label">Protocol</p>
             <h2 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light leading-tight text-foreground">
@@ -24,6 +25,16 @@ export function Features() {
               Tax liens reserved for institutional buyers at county auctions —
               now accessible through Sherwood Fi on Robinhood Chain.
             </p>
+
+            <div className="mt-8">
+              <SiteImage
+                src="/collateral-aerial.png"
+                alt="Tokenized property parcels with onchain collateral mapping"
+                variant="feature"
+                caption="Real property collateral · parcel-linked tokens"
+              />
+            </div>
+
             <div className="section-rule mt-8" />
           </div>
 

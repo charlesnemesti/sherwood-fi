@@ -2,6 +2,7 @@
 
 import { useAccount } from "wagmi";
 import { ConnectWallet } from "@/components/ConnectWallet";
+import { SiteImage } from "@/components/SiteImage";
 import { truncateAddress } from "@/lib/chains";
 
 export function PortfolioContent() {
@@ -10,17 +11,28 @@ export function PortfolioContent() {
   if (!isConnected || !address) {
     return (
       <section className="py-24 sm:py-32">
-        <div className="site-container max-w-lg text-center">
-          <p className="section-label">Portfolio</p>
-          <h1 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
-            Your positions
-          </h1>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-            Connect your wallet on Robinhood Chain to view tokenized lien
-            positions, accrued interest, and secondary market listings.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <ConnectWallet variant="portfolio" />
+        <div className="site-container">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="text-center lg:text-left">
+              <p className="section-label">Portfolio</p>
+              <h1 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
+                Your positions
+              </h1>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                Connect your wallet on Robinhood Chain to view tokenized lien
+                positions, accrued interest, and secondary market listings.
+              </p>
+              <div className="mt-8 flex justify-center lg:justify-start">
+                <ConnectWallet variant="portfolio" />
+              </div>
+            </div>
+
+            <SiteImage
+              src="/collateral-aerial.png"
+              alt="Your lien positions mapped to real property"
+              variant="feature"
+              caption="Positions linked to onchain parcel data"
+            />
           </div>
         </div>
       </section>
@@ -47,17 +59,24 @@ export function PortfolioContent() {
           <div className="border-b border-border px-6 py-4 font-mono text-[0.625rem] uppercase tracking-wider text-muted">
             Holdings
           </div>
-          <div className="flex flex-col items-center justify-center px-6 py-20 text-center">
-            <p className="font-display text-xl font-light text-foreground">
-              No positions yet
-            </p>
-            <p className="mt-2 max-w-sm text-sm text-muted">
-              Markets open during early access. Browse available lien certificates
-              and invest in USDC once trading is live for your cohort.
-            </p>
-            <a href="/markets" className="btn-secondary mt-8">
-              Browse Markets
-            </a>
+          <div className="grid items-center gap-8 px-6 py-12 lg:grid-cols-[1fr_0.7fr] lg:py-16">
+            <div className="text-center lg:text-left">
+              <p className="font-display text-xl font-light text-foreground">
+                No positions yet
+              </p>
+              <p className="mt-2 max-w-sm text-sm text-muted lg:mx-0 mx-auto">
+                Markets open during early access. Browse available lien certificates
+                and invest in USDC once trading is live for your cohort.
+              </p>
+              <a href="/markets" className="btn-secondary mt-8 inline-flex">
+                Browse Markets
+              </a>
+            </div>
+            <SiteImage
+              src="/hero-forest.png"
+              alt="Awaiting your first lien position"
+              variant="inline"
+            />
           </div>
         </div>
 

@@ -1,0 +1,10 @@
+---
+description: Ubicación del proyecto Sherwood Fi
+alwaysApply: true
+---
+
+# Sherwood Fi
+
+Este proyecto vive en `C:\Users\ritix\PROYECTOS\sherwood-fi`.
+
+Usa siempre esta ruta como working directory para comandos, servidor de desarrollo y despliegues.

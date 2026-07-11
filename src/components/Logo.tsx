@@ -6,13 +6,13 @@ type LogoProps = {
   showText?: boolean;
 };
 
-const sizes = { sm: 26, md: 32, lg: 40 };
+const sizes = { sm: 34, md: 44, lg: 56 };
 
 export function Logo({ size = "md", showText = true }: LogoProps) {
   const px = sizes[size];
 
   return (
-    <Link href="/" className="group flex items-center gap-3">
+    <Link href="/" className="group flex items-center gap-3.5">
       <Image
         src="/logo.png"
         alt=""
@@ -23,7 +23,7 @@ export function Logo({ size = "md", showText = true }: LogoProps) {
         priority
       />
       {showText && (
-        <span className="font-display text-[1.05rem] font-normal tracking-tight text-foreground">
+        <span className="font-display text-[1.2rem] font-normal tracking-tight text-foreground sm:text-[1.35rem]">
           Sherwood<span className="italic text-copper">Fi</span>
         </span>
       )}
