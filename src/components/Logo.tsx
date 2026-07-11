@@ -22,6 +22,7 @@ export function Logo({ size = "md", showText = true }: LogoProps) {
         alt="Sherwood Fi"
         width={px}
         height={px}
+        style={{ width: px, height: "auto" }}
         className="rounded-lg transition-transform group-hover:scale-105"
         priority
       />
