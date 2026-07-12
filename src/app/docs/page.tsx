@@ -73,8 +73,10 @@ export default function DocsPage() {
           <h1 className="font-display mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-light text-foreground">
             Docs
           </h1>
-          <p className="mt-4 text-sm text-muted">
-            Technical guides and protocol reference for Sherwood Fi on Robinhood Chain.
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            Technical reference for Sherwood Fi — onchain tax lien and tax deed
+            markets on Robinhood Chain. Senior claims on real property,
+            tokenized. Statutory yield. Onchain settlement.
           </p>
         </div>
 
