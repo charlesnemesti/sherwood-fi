@@ -512,33 +512,6 @@ body::before {
   color: var(--copper);
 }
 
-/* Waitlist */
-.waitlist-panel {
-  position: relative;
-  padding: clamp(2rem, 5vw, 3.5rem);
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(135deg, rgba(61, 90, 71, 0.08) 0%, transparent 40%),
-    var(--surface);
-  overflow: hidden;
-}
-
-.waitlist-panel > .site-image {
-  position: relative;
-  z-index: 10;
-}
-
-.waitlist-panel::after {
-  content: "";
-  position: absolute;
-  right: -10%;
-  bottom: -30%;
-  width: 40%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(196, 149, 106, 0.06), transparent 70%);
-  pointer-events: none;
-}
-
 /* Nav */
 .nav-link {
   position: relative;

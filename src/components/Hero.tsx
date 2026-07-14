@@ -29,9 +29,6 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Link href="#waitlist" className="btn-primary">
-                Join Waitlist
-              </Link>
               <ConnectWallet variant="hero" />
               <Link href="/markets" className="btn-secondary">
                 Markets

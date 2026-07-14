@@ -69,12 +69,8 @@ export default async function MarketDetailPage({ params }: Props) {
           <div className="px-6 py-6">
             <p className="text-sm leading-[1.7] text-muted">
               Available during phased early access. Connect your wallet on
-              Robinhood Chain and join the waitlist to be notified when trading
-              opens for {market.name}.
+              Robinhood Chain to trade when markets open for {market.name}.
             </p>
-            <a href="/#waitlist" className="btn-primary mt-6 inline-flex">
-              Join Waitlist
-            </a>
           </div>
         </div>
       </div>
