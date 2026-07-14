@@ -30,6 +30,13 @@ export const metadata: Metadata = {
     description: "Own the lien markets of Robinhood Chain",
     siteName: "Sherwood Fi",
   },
+  verification: {
+    other: {
+      "virtual-protocol-site-verification": [
+        "efe18cac5ae2d3c35473380de27454aa",
+      ],
+    },
+  },
 };
 
 export default function RootLayout({
